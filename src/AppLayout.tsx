@@ -35,10 +35,16 @@ export const AppLayout = ({}: { children?: ReactNode }) => {
               active={window.location.pathname === '/'}
             />
             <NavLink
-              label="About"
+              label="GraphQL"
               leftSection={<IconSettings size={18} />}
-              onClick={() => navigate('/about')}
-              active={window.location.pathname === '/about'}
+              onClick={() => navigate('/graphql')}
+              active={window.location.pathname === '/graphql'}
+            />
+            <NavLink
+              label="RLS"
+              leftSection={<IconSettings size={18} />}
+              onClick={() => navigate('/rls')}
+              active={window.location.pathname === '/rls'}
             />
           </div>
         </div>

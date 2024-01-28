@@ -19,8 +19,9 @@ import '@/index.css';
 import { AppReduxProvider, store } from '@/app-redux';
 
 import { AppLayout } from './AppLayout';
-import { Home } from './pages/Home';
-import { About } from './pages/About';
+import { OverviewPage, GraphQLPage, RLSPage } from './pages';
+
+import { AppProvider } from './layouts/AppContext';
 
 export const App = () => {
   return (
@@ -29,7 +30,9 @@ export const App = () => {
         <ModalsProvider>
           <Notifications position="top-right" />
 
-          <RouterProvider router={router} />
+          <AppProvider>
+            <RouterProvider router={router} />
+          </AppProvider>
         </ModalsProvider>
       </MantineProvider>
     </AppReduxProvider>
@@ -43,11 +46,15 @@ const router = createBrowserRouter([
     children: [
       {
         path: '',
-        element: <Home />,
+        element: <OverviewPage />,
       },
       {
-        path: 'about',
-        element: <About />,
+        path: 'graphql',
+        element: <GraphQLPage />,
+      },
+      {
+        path: 'rls',
+        element: <RLSPage />,
       },
     ],
   },
